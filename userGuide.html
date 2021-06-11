@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Reddit Data Monitor - User Manual</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="authors" content="Andrei Zaborila, Maria Ecaterina Olariu, Vlad Teodorescu">
+  <meta name="project" content="Reddit Data Monitor">
+</head>
+<body prefix="schema: http://schema.org/">
+  <article resource="#" typeof="schema:ScholarlyArticle">
+    <header>
+      <a href="index.html"><h1> <strong>redDat</strong> </h1></a>
+  </header>
+  </article>
+<h1>User Guide</h1>
+
+
+<p>In this section we will discuss how the user interacts with the project <abbr title="Reddit Data Monitor">ReDat</abbr>.</p>
+
+<h2>User Interaction Pages</h2>
+
+<p>This application means to explore and monitor the activity of certain subreddits. Using the data recorded from accessing these subreddits, it will generate statistics and a few charts that will help the user to better visualize them.</p>
+
+<p>The user is meant to access the link of the application:</p>
+<ul>
+  
+    <li  class = "magnify-text"><a href="#login page">Login/Register Page</a> </li>
+    <li  class = "magnify-text"><a href="#navbar">Navigation Bar</a> </li>
+    <li class = "magnify-text"><a href="#feed page"> Feed Page</a></li>
+    <li class = "magnify-text"><a href="#subreddit page"> Subreddit Page</a></li>
+    <li class = "magnify-text"><a href="#rankings page"> Rankings Page</a> </li>
+    <li class = "magnify-text"><a href="#settings"> Settings Page</li>
+    <li class = "magnify-text"><a href="#administative"> Administrative Page</a> </li>
+
+</ul>
+
+<h2><a name="login page"> Login / Register Page</a></h2>
+
+<p>
+    The application requires the user to login to an existing account or to create one on the spot. Having chosen either of those, after the user clicks on the button, a small window will pop up with the necessary informations. 
+</p>
+
+<p>
+    After the login / register process, the user will be redirected to a page that we will call: "Feed Page".
+</p>
+<p>
+<img src="imgs/mainPage01.jpg" alt="mainPage" class="center">
+</p>
+
+<h2><a name="navbar"> Navigation Bar</a></h2>
+<p>
+  The navigation bar has a number of features including:
+</p>
+<ul>
+  <li>
+    Home button: clicking it sends user to the Feed Page.
+  </li>
+  <li>
+    Ranking button: clicking it sends user to the Ranking Page.
+  </li>
+  <li>
+    Subreddits button: clicking it sends user to the Subreddit Page.
+  </li>
+  <li>
+    Settings button: clicking it sends user to the Settings Page.
+  </li>
+  <li>
+    Exit button: clicking it logs out user and sends it to the Login / Register Page.
+  </li>
+  <li>
+    <abbr title="Only for admins">Admin button</abbr>: clicking it sends admin to Administative Page.
+  </li>
+  <li>
+    Search bar: search the keyword after typing it and clicking the magnifying glass.
+  </li>
+</ul>
+<p>
+<img src="imgs/navbar01.jpg" alt="navbar" class="center">
+</p>
+
+<h2><a name="feed page"> Feed Page</a> </h2>
+
+<p>
+  The user is now able to see a multitude of subreddits and a navigation bar. The "matrix" of subreddits is made of clickable icons of each subreddit and it includes a picture taken from the subreddit page and the name of the subreddit right below it.
+</p>
+<p>
+<img src="imgs/rankingsPage01.jpg" alt="settingsPage" class="center">
+</p>
+
+
+<h2><a name="rankings page"> Rankings Page</a></h2>
+
+<p>
+  After clicking on the second button from left to right, the user is redirected to a page that shows a few rankings and two graphs.
+</p>
+<p>
+  There will be 5 lists of rankings, that are each scrollable since they are a top of the first 50 subreddits. The tops are made using the criteria shown above and the values represent the number of either subscribers, posts, comments, upvotes or awards. 
+</p>
+<p>
+  Right below the tops, the user can see 2 bar charts that are a visual representation of two rankings, after posts and after comments.
+</p>
+
+<p>
+<img src="imgs/rankingsPage01.jpg" alt="rankingsPage" class="center">
+</p>
+
+<h2><a name="subreddit page"> Subreddit Page</a></h2>
+
+<p>
+  On the right side of the name of the subreddit the user can press a bell icon to subscribe and unsubscribe to it. If subscribed, the bell is coloured bright orange, else its a faded shade of orange. After subscribing, the list of subreddits can be found on the Settings Page.
+</p>
+<p>
+  Each subreddit will show a number of data in the sections that include the ranking based on the number of subscribers, posts, comments, upvotes, awards, all listed before per subscriber, new subscribers, new posts per day. 
+</p>
+<p>
+  The user can hover over the "i" symbol next to the Ranking name to see the exact amount of either subscribers, or posts, or the type listed below Ranking name.
+</p>
+<p>
+  After checking all the statistics regarding rank, the user is able to see the top posts from the last hour, the last day or from all the time.
+</p>
+<p>
+  Below them there are two graphs, a bar chart and a pie chart. The bar chart represents the number of comments among the first 26 reddit posts on the subreddit section hot. The pie chart was made calculating how many of 26 posts have which upvote percentage.
+</p>
+
+<p>
+<img src="imgs/subredditPage01.jpg" alt="subredditPage" class="center">
+</p>
+
+<h2><a name="settings"> Settings Page</h2>
+
+<p>
+  In this page, the user can choose to unfollow a subreddit it chose as preference by clicking the "x" button right next to the subreddit name.
+</p>
+<p>
+  The user can also add a preference by searching the name of the subreddit in the bar and pressing the "Add preference" button.
+</p>
+<p>
+<img src="imgs/settingsPage01.jpg" alt="settingsPage" class="center">
+</p>
+
+<h2><a name="administative"> Administrative Page</h2>
+
+<p>
+  Presented with the logo of the application in the navbar, this page shows to administrators a table containing the users, whether they are admins or not, an action button to delete the account, and a list of preferences. Below the table, there are three buttons for wiping and refreshing the subreddits database and for wiping the user database.
+</p>
+<p>
+<img src="imgs/adminPage01.jpg" alt="adminPage" class="center">
+</p>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> redDat Report </title>
+</head>
+<body prefix="schema: http://schema.org/">
+    <article typeof="schema:ScholarlyArticle">
+        <header>
+            <a href="index.html"><h1> <strong>redDat</strong> </h1></a>
+        </header>
+        <section role="doc-toc">
+            <h2>
+                Table of contents
+            </h2>
+            <ol>
+                <li> 
+                    <a href="#introduction"> Introduction </a>
+                    <ol>
+                        <li> <a href="#purpose"> Purpose </a> </li>
+                        <li> <a href="#audience"> Intended audience </a> </li>
+                    </ol>
+                </li>
+                <li> 
+                    <a href="#description"> Overall description </a>
+                    <ol>
+                        <li> <a href="#functions"> Product functions </a> </li>
+                        <li> <a href="#user-types"> Types of users  </a> </li>
+                        <li> <a href="#operating-environment"> Operating environment </a> </li>
+                    </ol>
+                </li>
+                <li> 
+                    <a href="#frontend-structure"> Frontend Structure </a>
+                    <ol>
+                        <li> <a href="#f-technologies"> Technologies </a> </li>
+                        <li> 
+                            <a href="#f-pages"> Pages </a> 
+                            <ol>
+                                <li> <a href="#f-landing"> Landing Page </a> </li>
+                                <li> <a href="#f-feed"> Feed Page </a> </li>
+                                <li> <a href="#f-top"> Tops & Statistics Page </a> </li>
+                                <li> <a href="#f-sub"> Subreddit Page </a> </li>
+                                <li> <a href="#f-settings"> Settings Page </a> </li>
+                                <li> <a href="#f-admin"> Admin Page </a> </li>
+                                <li> <a href="#f-navbar"> The Navbar </a> </li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+                <li> 
+                    <a href="#backend-structure"> Backend Structure </a>
+                    <ol>
+                        <li> <a href="#b-technologies"> Technologies </a> </li>
+                        <li> 
+                            <a href="#b-microservices"> Microservices </a> 
+                            <ol>
+                                
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+                <li> 
+                    <a href="#communication"> Communication </a>
+                    <ol>
+                        <li> <a href="#">  </a> </li>
+                    </ol>
+                </li>
+                <li> 
+                    <a href="#tasks"> Tasks </a>
+                    <ol>
+                        <li> <a href="#vlad"> Vlad Teodorescu </a> </li>
+                        <li> <a href="#andrei"> Andrei Zaborilă </a> </li>
+                        <li> <a href="#maria"> Maria Olariu </a> </li>
+                    </ol>
+                </li>
+            </ol>
+        </section>
+        <section role="doc-introduction" id="introduction">
+            <h2> 1. Introduction </h2>
+            
+            <section role="doc-purpose" id="purpose">
+                <h3> 1.1. Purpose </h3>
+                <p>
+                    In the Information Age, data is no longer scarce – it’s overpowering. The key is to browse through the overwhelming volume 
+                    of data available and correctly interpret its implications. 
+                    But to sort through all this information, you need the right statistical data analysis tools. 
+                    This is why we created <strong>redDat</strong>. It is a tool that provides statistical data about any subreddit, in a format that is easy to read. 
+                </p>
+            </section>
+
+            <section role="doc-audience" id="audience">
+                <h3> 1.2 Intended audience </h3> 
+                <p>
+                    Both normal Reddit users and subreddit moderators are the main target audience, but other people who are interested in statistical data about certain subreddits
+                    can also make use of our website too.
+                </p>
+            </section>
+        </section>
+
+        <section role="doc-description" id="description">
+            <h2> 2. Overall description </h2>
+
+            <section role="doc-functions" id="functions">
+                <h3> 2.1 Product functions </h3>
+                <p>
+                    <strong>redDat</strong>'s main statistical analysis features are:
+                    <ul>
+                        <li> Displaying a feed of data about the most relevant subreddits according to the user's selected preferences </li>
+                        <li> Displaying detailed information about specific subreddits </li>
+                        <li> Displaying rankings of all the subreddits, in multiple categories </li>
+                        <li> Searching for detailed statistics of a particular subreddit </li>
+                        <li> Subscribing to certain subreddits to receive notifications about new posts on them </li>
+                    </ul>
+                </p>
+            </section>
+
+            <section role="doc-types-of-users" id="user-types">
+                <h3> 2.2 Types of users </h3>
+                <p>
+                    <strong>redDat</strong> allows the existence of two types of users:
+                    <ul>
+                        <li> Regular users, who can access all the described features. </li>
+                        <li> Admin users, who, besides the options of the regular user, can directly manipulate de data from the database </li>
+                    </ul>
+                </p>
+            </section>
+
+            <section role="doc-operating-environment" id="operating-environment">
+                <h3> 2.3 Operating environment </h3>
+                <p>
+                    The application will run in a browser, on both descktop and mobile platforms, on Windows, Linux, Android, iOS.
+                </p>
+            </section>
+        </section>
+
+        <section role="doc-frontend-structure" id="frontend-structure">
+            <h2> 3. Frontend Structure </h2>
+
+            <section role="doc-f-technologies" id="f-technologies">
+                <h3> 3.1 Technologies </h3>
+                    <p>
+                        For the frontend part of the project we used HTML5, CSS3 and JavaScript.
+                    </p>
+            </section>
+
+            <section role="doc-f-pages" id="f-pages">
+                <h3> 3.2 Pages </h3>
+
+                <img src="imgs/flow.png">
+                
+                <section role="doc-f-landing" id="f-landing">
+                    <h4> Landing Page </h4>
+                    <p>
+                        This is the first page that the user will see. Here they can choose to create an account or log in with an already existing one.
+                        After creating an account, they are presented with a modal where they can add their preferences. Those can later be changed in the settings.
+                    </p>
+                </section>
+
+                <section role="doc-f-feed" id="f-feed">
+                    <h4> Feed Page </h4>
+                    <p>
+                        After logging in, the user will be redirected to the feed page. Here they will see a list of subreddits relevant to their choice of preferences made prior.
+                        Clicking on the "Toggle detailed mode" will switch between a simplified view, which only shows the icon and the name of each subreddit, and a more complex view which will give more information about each subreddit.
+                        Clicking on a subreddit will redirect the user to the page of that subreddit.
+                    </p>
+                </section>
+
+                <section role="doc-f-top" id="f-top">
+                    <h4> Tops & Statistics Page </h4>
+                    <p>
+                        This page contains a selection of tops of subreddits, each with a different category. There are tops for how many subscribers a subreddit has, how many posts they have and more.
+                        At the bottom of the page there are graphs which are visualizations of some of the tops above them.
+                    </p>
+                </section>
+
+                <section role="doc-f-sub" id="f-sub">
+                    <h4> Subreddit Page </h4>
+                    <p>
+                        The subreddit will provide the user with tons of information about the clicked subreddit. They can see the thumbnail and the banner of the subreddit, its description and its title.
+                        Below that there are statistics about different aspects of the subreddit, such as how many new subscribers it has gained in the last day, how many new comments were made since yesterday and more.
+                        After that are a number of tops which show the best posts based on their age. The user can see the best posts of the past hour, past day or all time.
+                        At the bottom of the page there is a graph which indicates the number of comments among the first 26 reddit posts on the current subreddit, and a pie chart showing the percentage of upvote ratios among the first 26 reddit posts on the current subreddit.
+                        Lastly, if a user is interested in news about a subreddit (new posts), they can subscribe to it by clicking the bell icon next to their title at the top of the page. Subscriptions can be managed in the settings.
+                    </p>
+                </section>
+
+                <section role="doc-f-settings" id="f-settings">
+                    <h4> Settings Page </h4>
+                    <p>
+                        In the settings page the user can tweak their preferences and subcriptions by adding new ones and removing existing ones.
+                    </p>
+                </section>
+
+                <section role="doc-f-admin" id="f-admin">
+                    <h4> Admin Page </h4>
+                    <p>
+                        The admin page is only accessible to the admins, which are strictly created by the developers of redDat. Here they can see a list of the 10 most popular subjects (user preferences) and the 10 most subscribed subreddits.
+                        Beneath that there is a list of users, which presents the admin with a number of options.
+                        They can promote/demote an user to/from the status of admin, they can delete an user, they can see and delete any of their preferences or subscriptions.
+                        At the bottom of the page there are three buttons. One will wipe the user database, another one will wipe the database which holds all the information about the recorded subreddits and the last button will force an update of the subreddit database.
+                    </p>
+                </section>
+
+                <section role="doc-f-navbar" id="f-navbar">
+                    <h4> The Navbar </h4>
+                    <p>
+                        After logging in, there will always be a navbar at the top of the screen. It will provide quick access to different parts of the website.
+                        The first button will redirect the user to the Landing Page(only if they are no longer logged in, otherwise they will be sent to the Feed Page), the second one to the Feed Page and the third one to the Tops & Statistics Page.
+                        The fourth button will lead to the settings page, and the fifth button will disconnect the user.
+                        There is a sixth button, only visible to the user if they are an admin. It will lead to the Admin Page.
+                        In the right part of the Navbar there is a search bar. Entering a keyword there and searching will redirect the user to a custom instance of the feed page, it being populated with subreddits relevant to the provided keyword.
+                    </p>
+                </section>
+
+            </section>
+        </section>
+        <section role="doc-backend-structure" id="backend-structure">
+            <h2> 4. Backend Structure </h2>
+
+            <section role="doc-b-technologies" id="b-technologies">
+                <h3> 4.1 Technologies </h3>
+                    <p>
+                        For the backend part of the project we used 
+                        <ul>
+                            <li> <strong> NodeJS </strong> was used to implement most features of the main server and microservices. </li>
+                            <li> <strong> MySQL </strong> was used as the database server. We chose to use relational databases due to their performant search. </li>
+                            <li> <strong> socket.io </strong> was used to implement the notifications feature. We chose to use WebScoket due to its ability to communicate bidirectionally and asynchronously. </li>
+                            <li> <strong> JWT </strong> was used for authentication. </li>
+                            <li> <strong> Reddit API</strong> was used for the retrieval of data about reddit.com </li>
+                        </ul>
+                    </p>
+            </section>
+
+            <section role="doc-b-microservices" id="b-microservices">
+                <h3> 4.2 Microservices </h3>
+                <img src="imgs/c2.png">
+                <p>
+                    We structured our project around 3 microservices and a main server. This approach bring many advantages over structuring the application as a monolith, mainly the ability to scale easily 
+                    and reduced impact of outages, as the other microservices continue to work as expected, even if one fails. Our services are:
+                    <ul>
+                        <li> The main server - acts as a gateway for the microservices and handles static file retrieval </li>
+                        <li> The users microservice - handles authentication and authorization, user CRUD operations and admin operations </li>
+                        <li> The statistics microservice - handles the retrieval and calculation of statistics and creation of charts based on them </li>
+                        <li> The notifications microservice - handles subscriptions and sends notifications based on them; also watches a list of subreddits and retrieves the newest posts for the notifications </li>
+                    </ul>
+                </p>
+                <h4> Main server </h4>
+                <p>
+                    When a request first arrives to the main server, it has to be authorized. The JWT in the cookies is checked and the request is not solved if the token
+                    is not valid and the request is for a non-public resource. Then, if the request is for a static file, it is served, otherwise it is redirected to the
+                    microservice that will hadle the request.
+                </p>
+                <h4> Users microservice </h4>
+                <p>
+                    This service is responsible for the administration of user data. It handles account creation and login for users, generating the token on a successful login.
+                    User preferences and subscriptions are also persisted in the database through this microservice. In addition, administrator commands are handled here, with
+                    additional checks that the user sending the request had the rights needed for the operations.
+                </p>
+                <h4> Statistics microservice </h4>
+                <img src="imgs/statistics.png">
+                <p>
+                    This is the central part of the application. Depending on the request, the service queries the reddit API for live data, or our own database for historical
+                    data. Then, the data requested is processed and the necesarry statistics or charts are built. For the population of the database, a script that makes
+                    multiple requests to the reddit API was used. It reads the list of subreddits from the database and makes requests for the newest posts. Then, partitions
+                    then in 1-hour-long intervals and inserts the hourly data into the database. For the best statistics, this script should be run once every hour and collect
+                    the data from the last hour.
+                </p>
+                <h4> Notifications microservice </h4>
+                <img src="imgs/notificari.png">
+                <p>
+                    Live notifications for new posts are handled by this service. In order to be able to send the notifications in real time, we used WebSockets. New posts are
+                    retrieved by a watcher that acts as another socket.io client and are sent to the users by the server that acts as a middle-man. The communication is made
+                    through 3 types of messages:
+                    <ul>
+                        <li> Subscribe [subreddit list] ->  the client sends this message to the server, that forwards it to the watcher in order to update its list of
+                            watched subreddits. By sending this message the client automatically joins the socket.io "rooms" of the subreddits in the list.
+                        </li>
+                        <li> Unsubscribe [subreddit list] ->  the client sends this message to the server, that forwards it to the watcher in order to update its list of
+                            watched subreddits. It is also automatically sent by the server when a client disconnects. By sending this message the client automatically leaves
+                            the socket.io "rooms" of the subreddits in the list.
+                        </li>
+                        <li>
+                            Post [post object] -> the watcher sends this message to the server when it discovers a new post in one of the watched subreddits. 
+                            The server then broadcasts it to all clients in the room of the subreddit. Then the client sends the notification through the browser's API.
+                        </li>
+                    </ul>
+                </p>
+            </section>
+        </section>
+        <section role="doc-communication" id="communication">
+            <h2> 5. Communication </h2>
+            <p>
+                Client-server communication is mainly done through HTTP requests to the internal API and public REST services. Requests pass through the main server that either serves a static file, or forwards
+                the request to the matching microservice and sends back the response after it is received from the microservice. 
+                Pages are dynamically built throgh AJAX calls to the server based on query parameters and user input. 
+                Subreddit subscriptions are sent to the server through WebSockets and post notifications are sent to socket.io "rooms" of clients that are subscribed to the subreddit
+                corresponing to the new post. 
+            </p>
+        </section>
+        <section role="doc-tasks" id="tasks">
+            <h2> 6. Tasks </h2>
+            <section role="doc-vlad" id="vlad">
+                <h3> Vlad Teodorescu </h3>
+                His main area of tasks was strcturing the server properly, interaction with the reddit API and communication:
+                <p>
+                    <ul>
+                        <li> Reddit API research </li>
+                        <li> JWT based authentication </li>
+                        <li> Reddit API integration </li>
+                        <li> Database setup </li>
+                        <li> Reddit statistics database </li>
+                        <li> Reddit statistics builder script </li>
+                        <li> Server-side of the websocket connection </li>
+                        <li> Reddit new posts watchet </li>
+                        <li> Organizing the project as microservices </li>
+                        <li> User input validation framework </li>
+                        <li> Utility functions for easier usage of requests and responses </li>
+                        <li> The subreddit public API </li>
+                    </ul>
+                </p>
+            </section>
+            <section role="doc-andrei" id="andrei">
+                <h3> Andrei Zaborilă </h3>
+                His main area of tasks was integration with the frontend and some features on the backend:
+                <p>
+                    <ul>
+                        <li> Reddit API research </li>
+                        <li> Initial server and routes setup </li>
+                        <li> Preliminary MVC structuring of the server </li>
+                        <li> Admin functionality </li>
+                        <li> Admin page </li>
+                        <li> Parts based backend rendering of the HTML pages </li>
+                        <li> Preferences functionality </li>
+                        <li> Login and Register </li>
+                        <li> Client-side of the websocket connection </li>
+                        <li> The user public API </li>
+                        <li> Subscriptions functionality </li>
+                        <li> Settings page </li>
+                    </ul>
+                </p>
+            </section>
+            <section role="doc-maria" id="maria">
+                <h3> Maria Olariu </h3>
+                Her main task was implementing the graphs to display the statistics in an easier to understand way:
+                <p>
+                    <ul>
+                        <li> Server-side creation of graphs </li>
+                        <li> Bar charts </li>
+                        <li> Pie charts </li>
+                    </ul>
+                </p>
+            </section>
+        </section>
+    </article>
+</body>
+</html>
