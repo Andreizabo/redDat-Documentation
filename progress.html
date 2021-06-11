@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> redDat Report </title>
+</head>
+<body prefix="schema: http://schema.org/">
+    <article typeof="schema:ScholarlyArticle">
+        <header>
+            <a href="index.html"><h1> <strong>redDat</strong> </h1></a>
+        </header>
+        <section role="doc-toc">
+            <h2>
+                Table of contents
+            </h2>
+            <ol>
+                <li>    <a href="#frontend"> Frontend </a> </li>
+                <li>    <a href="#server"> The first server</a> </li>
+                <li>    <a href="#auth"> Authentication </a> </li>
+                <li>    <a href="#reddit-api"> Start of reddit API integration </a> </li>
+                <li>    <a href="#historical"> The historical statistics API </a> </li>
+                <li>    <a href="#rankings"> Rankings </a> </li>
+                <li>    <a href="#preferences"> Preferences </a> </li>
+                <li>    <a href="#admin"> Admins </a> </li>
+                <li>    <a href="#charts"> Charts </a> </li>
+                <li>    <a href="#microservices"> Microservice organization </a> </li>
+                <li>    <a href="#notifications"> Notifications and subscriptions </a> </li>
+            </ol>
+        </section>
+        <section role="doc-frontend" id="frontend">
+            <h2> 1. Frontend </h2>
+            <p>
+                At the beginning of the project we created the user interface of the website. All pages used dummy data and the application consisted
+                only of a set of static HTML files
+            </p>
+            
+        </section>
+        <section role="doc-server" id="server">
+            <h2> 2. The first server </h2>
+            <p>
+                Then we started to develop the backend of the application. The first step was creating a server that just serves the static HTML files mentioned before
+            </p>
+        </section>
+        <section role="doc-auth" id="auth">
+            <h2> 3. Authentication </h2>
+            <p>
+                The first feature we implemented was the account creation and login service. We decided to use JWT for authentication and authorization.
+            </p>
+        </section>
+        <section role="doc-reddit-api" id="reddit-api">
+            <h2> 4. Start of reddit API integration </h2>
+            <p>
+                After authentication was done we started working on a wrapper for the reddin API that returned the information we needed. The first
+                functionalities were obtaining information about a subreddit, and searching subreddits by keywords.
+                By using these API functions we were able to populate the feed page of our applications with subreddits based on some harcoded keywords (until preferences are implemented)
+                Also, each subreddit's page was populated with the specific information of that subreddit.
+            </p>
+        </section>
+        <section role="doc-historical" id="historical">
+            <h2> 5. The historical statistics API </h2>
+            <p>
+                Because the reddit API doesn't expose historical data directy, we needed to collect our own data by making multiple requests to their API.
+                So we made a script that reads what subreddits to fetch data for from our database and queries reddit's API for posts in chronological order.
+                Then it splits them into hourly intervals, agregates the data needed by the application and inserts it into the database.
+                This was one of the most time consuming parts of the development, as reddit's API limits the number of requests per minute and posts retrieved per request,
+                so we had to fetch data for a long period of time to construct a timelime for the statistics.
+
+                Using this database we were able to provide hourly statistics about the total number of posts (and other fields) until that time or differences between hours.
+            </p>
+        </section>
+        <section role="doc-rankings" id="rankings">
+            <h2> 6. Rankings </h2>
+            <p>
+                Using the historical statistics API we were able to build rankings based on different criteria and time frames.
+            </p>
+        </section>
+        <section role="doc-preferences" id="preferences">
+            <h2> 7. Preferences </h2>
+            <p>
+                After account creation, and in the settings page, users are able to add their preferences now. The subreddits in their feed will now be dynamically
+                generated based on their preferences.
+            </p>
+        </section>
+        <section role="doc-admin" id="admin">
+            <h2> 8. Admins </h2>
+            <p>
+                The admin functionality was added in order to provide certain users to manipulate the data from the database. We just added a new field in the users database
+                specifying whether or not an user was an administrator and then we started integrating it. We added a new button in the navbar which only appears if the user is an admin
+                which leads to the admin panel. There the admin could see a list of all users and could promote them or demote them regarding the admin staus, or delete their accounts.
+                After the preferences were added, a top 10 most popular subjects was added at the top of the page and the list of users was updated to contain the preferences of each user,
+                allowing the admin to delete any of them. After the subscriptions were added the admin panel had its last expansion, being enriched with similar features as those added when the
+                preferences were added.
+            </p>
+        </section>
+        <section role="doc-charts" id="charts">
+            <h2> 9. Charts </h2>
+               <p> <strong>redDat</strong>'s visual represantation of statistics <p>
+                <ul>
+                    <li> It began with searching a few visual representation libraries that are compatible with Node JS. </li>
+                    <li> After choosing Chartist we began testing a few templates of styles to see whether they are showing the data in a way that helps the user understand it.</li>
+                    <li> For each subreddit we picked to show graphical representations for the number of comments and the percentage of upvote ratios.</li>
+                    <li> The number of comments and the upvote ratios are being fetched from the Reddit API for each and every subreddit.</li>
+                    <li> For the Ranking Page we decided to show 40 most popular subreddits and their number of subscribers and number of comments to show the popularity of each subreddit based on these two factors.</li>
+                    <li> Initially, the charts would be placed on a canvas, drawn and made in frontend.</li>
+                    <li> The charts needed to be of format SVG and so we tried to use C2S - canvas2svg which should have been compatible with Chartist.</li>
+                    <li> After trying to make C2S work and failing, we decided to switch to d3 - Data Driven Documents for making the charts in SVG format.</li>
+                    <li> Switching to d3 made the charts look old fashioned but it was easier to make the charts in SVG.</li>
+                    <li> The charts on the Ranking Page take the data from the database and format it.</li>
+                    <li> The colours for the graphs were chosen to be in a colour scheme including black, orange and purple and their respective shades.</li>
+                </ul>
+        </section>
+        <section role="doc-microservices" id="microservices">
+            <h2> 10. Microservice organization </h2>
+            <p>
+                Until now, the application was structured as a monolith. We decided to split it into microservices for better scalability and less impact of outages.
+            </p>
+        </section>
+        <section role="doc-notifications" id="notifications">
+            <h2> 11. Notifications and subscriptions </h2>
+            <p>
+                The last feature we implemented was sending live notifications for new posts in subreddits. To subscribe to a subreddit's notifications the user can
+                go to that subreddit's page and click the bell. It was facilitated by socket.io for asynchronous bidirectional communication between the server and clients.
+            </p>
+        </section>
+    </article>
+</body>
+</html>
